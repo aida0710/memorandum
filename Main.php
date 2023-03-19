@@ -4,7 +4,7 @@ $pdo = new PDO(
 	'sqlite:DataBase.db'
 );
 
-$pdo->query('CREATE TABLE IF NOT EXISTS DataBase (AAA TEXT, Time TIMESTAMP)');
+$pdo->query('CREATE TABLE IF NOT EXISTS tableA (AAA TEXT, Time TIMESTAMP)');
 for ($i = 0; $i < 100; $i++) {
 	$cache[] = [
 		'AAA' => mt_rand(1000000000, 9999999999),
@@ -16,7 +16,7 @@ for ($i = 0; $i < 100; $i++) {
 $pdo->exec('begin');
 try {
 	foreach ($cache as $data) {
-		$pdo->query("INSERT INTO DataBase VALUES(\"$data[AAA]\",  \"$data[time]\")");
+		$pdo->query("INSERT INTO tableA VALUES(\"$data[AAA]\",  \"$data[time]\")");
 	}
 	$pdo->exec('commit');
 	echo "データがコミットされました";
