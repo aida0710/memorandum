@@ -3,7 +3,6 @@
 for ($i = 1; $i <= 3; $i++) {
 	execute($i);
 }
-
 function execute(int $patternNum) : void {
 	echo "~~~ Pattern {$patternNum} ~~~" . PHP_EOL;
 	newDataBase($sqlite = new PDO("sqlite:Pattern{$patternNum}.db"));
@@ -28,7 +27,7 @@ function resetCache() : array {
 	for ($i = 0; $i < 5000000; $i++) {
 		$cache[] = [
 			mt_rand(1000000000, 9999999999),
-			unixtojd(),
+			time(),
 		];
 	}
 	return $cache;
@@ -37,7 +36,6 @@ function resetCache() : array {
 function starTime() : float {
 	return microtime(true);
 }
-
 
 function resultTime($startTime) : void {
 	$endTime = microtime(true);
@@ -110,7 +108,6 @@ function insertData_Pattern3(PDO $sqlite, array $cache) : void {
 	$tableC = substr($tableC, 0, -1);
 	$tableD = substr($tableD, 0, -1);
 	$tableE = substr($tableE, 0, -1);
-
 	$startTime = starTime();
 	$sqlite->exec('begin');
 	try {
