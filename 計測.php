@@ -8,7 +8,7 @@ function execute(int $patternNum) : void {
 	echo "~~~ Pattern {$patternNum} ~~~" . PHP_EOL;
 	newDataBase($sqlite = new PDO("sqlite:Pattern{$patternNum}.db"));
 	match ($patternNum) {
-		1 => insertData_Pattern1($sqlite, resetCache()),
+		1 => var_dump("スキップされました"), //insertData_Pattern1($sqlite, resetCache()),
 		2 => insertData_Pattern2($sqlite, resetCache()),
 		3 => insertData_Pattern3($sqlite, resetCache()),
 		default => new Exception("Invalid pattern number: {$patternNum}" . PHP_EOL),
@@ -25,7 +25,7 @@ function newDataBase(PDO $sqlite) : void {//テーブル作るだけ
 
 function resetCache() : array {
 	$cache = [];
-	for ($i = 0; $i < 100; $i++) {
+	for ($i = 0; $i < 5000000; $i++) {
 		$cache[] = [
 			mt_rand(1000000000, 9999999999),
 			unixtojd(),
