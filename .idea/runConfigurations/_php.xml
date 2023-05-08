@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="計測.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/計測.php">
+  <configuration default="false" name="計測.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/sql/計測.php">
     <CommandLine>
       <PhpTestInterpreterSettings>
         <option name="interpreterName" value="PHP" />

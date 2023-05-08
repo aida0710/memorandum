@@ -55,7 +55,7 @@ function insertData_Pattern1(PDO $sqlite, array $cache) : void {
 			$sqlite->query("INSERT INTO tableE VALUES(\"$data[0]\",  \"$data[1]\")");
 		}
 		echo "データがコミットされました" . PHP_EOL;
-		resultTime($startTime) . PHP_EOL;
+		計測 . phpresultTime($startTime) . PHP_EOL;
 		return;
 	} catch (PDOException $e) {
 		//順々に逐一書き込んでるため、エラーが発生したらその時点で終了し、データがロールバックはできない
@@ -79,7 +79,7 @@ function insertData_Pattern2(PDO $sqlite, array $cache) : void {
 		}
 		$sqlite->exec('commit');
 		echo "データがコミットされました" . PHP_EOL;
-		resultTime($startTime) . PHP_EOL;
+		計測 . phpresultTime($startTime) . PHP_EOL;
 		return;
 	} catch (PDOException $e) {
 		$sqlite->exec('rollback');
@@ -118,7 +118,7 @@ function insertData_Pattern3(PDO $sqlite, array $cache) : void {
 		$sqlite->query($tableE);
 		$sqlite->exec('commit');
 		echo "データがコミットされました" . PHP_EOL;
-		resultTime($startTime) . PHP_EOL;
+		計測 . phpresultTime($startTime) . PHP_EOL;
 		return;
 	} catch (PDOException $e) {
 		$sqlite->exec('rollback');

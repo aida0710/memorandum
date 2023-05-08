@@ -1,2 +1,2 @@
-# sqliteTester
-phpでsqliteを触ってみる
+# memorandum
+色々触ってみたものを自身の備忘録として残していくリポジトリです。
